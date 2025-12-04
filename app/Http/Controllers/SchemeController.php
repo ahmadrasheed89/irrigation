@@ -43,6 +43,14 @@ class SchemeController extends Controller
         return view('schemes.create', compact('contractors','adps'));
     }
 
+     public function schemeCreate($adpId)
+    {
+        $contractors = Contractor::all();
+        $adps = Adp::where('id', $adpId)->get() ;
+
+        return view('schemes.create', compact('contractors','adps', 'adpId'));
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes(); // <-- This will add a deleted_at field

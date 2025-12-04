@@ -1,0 +1,1 @@
+<div class='card'><div class='card-body'><h5>{{ $task->title }}</h5><p>{{ $task->description }}</p><p><strong>Status:</strong> {{ $task->status }} | <strong>Assignee:</strong> {{ $task->assignee?->name }} | <strong>Department:</strong> {{ $task->department?->name }}</p></div></div>

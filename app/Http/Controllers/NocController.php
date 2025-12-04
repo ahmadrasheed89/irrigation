@@ -122,9 +122,11 @@ class NocController extends Controller
     public function upload($nocId){
 
         $allNocCategories = NocCategory::all();
+
         $nocFiles = NocFile::with(['noc', 'nocCategory'])->where('noc_id', $nocId)->get();
-//dd($nocFiles);
-        $nocName = !empty($nocFiles) ? $nocFiles[0]->noc->issue_no : Noc::select('issue_no')->findOrFail($nocId);
+
+        $nocDetail = Noc::select('issue_no')->findOrFail($nocId);
+        $nocName = $nocDetail->issue_no;
 
         return view('nocs.upload', compact('nocFiles','allNocCategories', 'nocId', 'nocName'));
     }

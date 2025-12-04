@@ -43,6 +43,9 @@
 	<script src="{!! asset('assets/demo/charts/pages/dashboard/heatmaps.js') !!}"></script>
 	<script src="{!! asset('assets/demo/charts/pages/dashboard/pies.js') !!}"></script>
 	<script src="{!! asset('assets/demo/charts/pages/dashboard/bullets.js') !!}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- /theme JS files -->
 
 

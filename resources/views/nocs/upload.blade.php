@@ -8,7 +8,7 @@
         <!-- Column groups -->
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0">Scheme: {{ $nocName }}</h5>
+                <h5 class="mb-0">Noc: {{ $nocName }}</h5>
                 <a href="{{ route('nocs.index') }}" class="btn btn-primary float-end" style="margin-top: -30px;">Back</a>
             </div>
 
@@ -20,7 +20,7 @@
             <table class="table  datatable-basic">
         <thead>
             <tr>
-                <th>Category</th>
+                <th>Documents</th>
                 <th>Description</th>
                 <th>Status</th>
                 <th>Date</th>

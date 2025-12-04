@@ -18,7 +18,11 @@ class AdpController extends Controller
      */
     public function index()
     {
-        $adps = Adp::latest()->paginate(10);
+        $adps = Adp::with('schemes')->withSum('schemes', 'expenditure')
+                    ->withSum('schemes', 'liability')
+                    ->withSum('schemes', 'sub_work_t_s_cost')
+                    ->orderBy('adp_code')->paginate(10);
+
         return view('adps.index', compact('adps'));
     }
 
