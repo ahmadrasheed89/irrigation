@@ -89,11 +89,11 @@
                                 <td class="ps-4 fw-medium">{{ $s->name }}</td>
                                 <td>
                                     <span class="badge bg-light text-dark border">
-                                        {{ $s->adp_code }}
+                                        {{ $s->adp->adp_code }}
                                     </span>
                                 </td>
                                 <td class="fw-semibold text-success">
-                                    ₹{{ number_format($s->sub_work_t_s_cost, 2) }}
+                                    Rs. {{ number_format($s->sub_work_t_s_cost, 2) }}
                                 </td>
                                 <td>
                                     @if($s->contractor)

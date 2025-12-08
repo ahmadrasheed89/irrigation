@@ -216,12 +216,12 @@
                                 {{ __('Tenders List') }}
                             </x-nav-link>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <x-nav-link :href="route('tenders.create')" class="nav-link text-white-80" :active="request()->routeIs('tenders.create')">
                                 <i class="ph-plus me-2"></i>
                                 {{ __('Create Tender') }}
                             </x-nav-link>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
 

@@ -68,12 +68,11 @@
                                 <span class="input-group-text bg-light border-end-0">
                                     <i class="ph-selection text-muted"></i>
                                 </span>
-                                @if ($adpId)
-                                <input type="hidden" name="adp_id" value="{{ $adpId }}" />
+                                @if (isset($adpId))
+                                <input type="hidden" name="adp_id" value="{{  $adps[0]->id}}" />
                                 <label class="form-control border-start-0}}">{{ $adps[0]->adp_code }}</label>
                                 @else
                                 <select name="adp_id" class="form-control border-start-0">
-                                    <option value="">Select ADP</option>
                                     @foreach($adps as $adp)
                                         <option value="{{ $adp->id }}" {{ (isset($scheme)) && $scheme->adp_id == $adp->id ? 'selected' : '' }}>{{ $adp->adp_code }}</option>
                                     @endforeach
@@ -128,7 +127,7 @@
                             </label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0">
-                                    <i class="ph-currency-inr text-muted"></i>
+                                    <i class="ph-currency-pkr text-muted"></i>
                                 </span>
                                 <input type="number"
                                        step="0.01"
@@ -140,27 +139,6 @@
                             </div>
                             <x-input-error :messages="$errors->get('expenditure')" class="mt-2" />
                             <div class="form-text text-muted">Total expenditure for this scheme</div>
-                        </div>
-                    </div>
-
-                    <!-- ADP Code -->
-                    <div class="col-md-6">
-                        <div class="form-group mb-3">
-                            <label class="form-label fw-medium">
-                                <i class="ph-identification-card me-2 text-primary"></i>
-                                ADP Code
-                            </label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-light border-end-0">
-                                    <i class="ph-hash text-muted"></i>
-                                </span>
-                                <input type="hidden"
-                                       name="adp_code"
-                                       required
-                                       value="{{ $adps[0]->adp_code }}">
-                            </div>
-                            <x-input-error :messages="$errors->get('adp_code')" class="mt-2" />
-                            <div class="form-text text-muted">Unique code for the scheme</div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +184,7 @@
                             </label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0">
-                                    <i class="ph-currency-inr text-muted"></i>
+                                    <i class="ph-currency-pkr text-muted"></i>
                                 </span>
                                 <input type="number"
                                        step="0.01"
@@ -239,7 +217,7 @@
                             </label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0">
-                                    <i class="ph-currency-inr text-muted"></i>
+                                    <i class="ph-currency-pk text-muted"></i>
                                 </span>
                                 <input type="number"
                                        step="0.01"
@@ -251,6 +229,48 @@
                             <x-input-error :messages="$errors->get('bid_cost')" class="mt-2" />
                             <div class="form-text text-muted">Cost submitted in the bid</div>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-medium">
+                                <i class="ph-money me-2 text-info"></i>
+                                TS Cost
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="ph-currency-pk text-muted"></i>
+                                </span>
+                                <input type="number"
+                                       step="0.01"
+                                       name="sub_work_t_s_cost"
+                                       class="form-control border-start-0"
+                                       value="{{ old('sub_work_t_s_cost', $scheme->sub_work_t_s_cost ?? '') }}"
+                                       placeholder="0.00">
+                            </div>
+                            <x-input-error :messages="$errors->get('sub_work_t_s_cost')" class="mt-2" />
+                            <div class="form-text text-muted">Cost submitted in the bid</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label fw-medium">
+                            <i class="ph-warning-circle me-2 text-warning"></i>
+                            Liability
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0">
+                                <i class="ph-currency-pk text-muted"></i>
+                            </span>
+                            <input type="number"
+                                   step="0.01"
+                                   name="liability"
+                                   class="form-control border-start-0"
+                                   value="{{ old('liability', $scheme->liability ?? 0) }}"
+                                   required
+                                   placeholder="0.00">
+                        </div>
+                        <x-input-error :messages="$errors->get('liability')" class="mt-2" />
+                        <div class="form-text text-muted">Pending financial obligations</div>
                     </div>
                 </div>
             </div>
@@ -298,4 +318,4 @@
                 });
             }
         });
-    </script>y
+    </script>

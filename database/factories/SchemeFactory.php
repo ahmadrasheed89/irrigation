@@ -16,7 +16,6 @@ class SchemeFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
-            'adp_code' => strtoupper($this->faker->unique()->bothify('ADP-####')),
             'sub_work_t_s_cost' => $this->faker->randomFloat(2, 10000, 1000000),
             'expenditure' => $this->faker->randomFloat(2, 10000, 1000000),
             'liability' => $this->faker->randomFloat(2, 10000, 1000000),

@@ -56,7 +56,8 @@ class SchemeController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'expenditure' => 'required|numeric|min:0',
-            'adp_code' => 'required|string',
+            'sub_work_t_s_cost' => 'required|numeric|min:0',
+            'liability' => 'required|numeric|min:0',
             'contractor_id' => 'required|exists:contractors,id',
             'adp_id' => 'required|exists:adps,id',
             'contractor_premium' => 'nullable|numeric|min:0',
@@ -86,7 +87,8 @@ class SchemeController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'expenditure' => 'required|numeric|min:0',
-            'adp_code' => 'required|string',
+            'sub_work_t_s_cost' => 'required|numeric|min:0',
+            'liability' => 'required|numeric|min:0',
             'contractor_id' => 'required|exists:contractors,id',
             'adp_id' => 'required|exists:contractors,id',
             'contractor_premium' => 'required|numeric|min:0',

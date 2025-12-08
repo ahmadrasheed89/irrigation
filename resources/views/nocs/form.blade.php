@@ -1,6 +1,6 @@
     <div class="row">
         <!-- Issue Number Field -->
-        @if ($noc->issue_no)
+        @if (isset($noc))
         <div class="col-12 mb-4">
             <div class="alert alert-primary d-flex align-items-center">
                 <i class="ph-info fs-4 me-3 text-primary"></i>
@@ -135,7 +135,7 @@
     <!-- Form Actions -->
     <div class="d-flex justify-content-between align-items-center border-top pt-4">
         <div>
-            @if($noc->issue_no)
+            @if(isset($noc))
                 <small class="text-muted">
                     <i class="ph-clock me-1"></i>
                     Last updated: {{ $noc->updated_at->format('M d, Y \a\t h:i A') ?? 'Never' }}
@@ -153,7 +153,7 @@
             </button>
             <button type="submit" class="btn btn-primary">
                 <i class="ph-paper-plane-tilt me-2"></i>
-                {{ $noc->issue_no ? 'Update NOC' : 'Create NOC' }}
+                {{ isset($noc) ? 'Update NOC' : 'Create NOC' }}
             </button>
         </div>
     </div>
@@ -241,7 +241,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Set default date to today if no value exists and it's a new form
     const issueDateInput = document.getElementById('issueDate');
-    if (issueDateInput && !issueDateInput.value && '{{ $noc->issue_no }}' !== 'PUT') {
+    if (issueDateInput && !issueDateInput.value && '{{ isset($noc) }}' !== 'PUT') {
         const today = new Date();
         const formattedDate = today.toISOString().split('T')[0];
         issueDateInput.value = formattedDate;

@@ -11,10 +11,11 @@ class Scheme extends Model
     use HasFactory;
 
     protected $fillable = [
-        'scheme_name', 'cost', 'adp_code',
-        'contractor_id', 'contractor_premium', 'bid_cost', 'user_id'
+        'name', 'cost',
+        'contractor_id', 'contractor_premium', 'bid_cost', 'user_id', 'adp_id', 'expenditure',
+        'liability', 'physical_progress', 'financial_progress', 'sub_work_t_s_cost'
     ];
-    protected array $searchable = ['scheme_name', 'cost', 'adp_code'];
+    protected array $searchable = ['name', 'cost', 'adp_code'];
 
     protected static function booted(): void
     {

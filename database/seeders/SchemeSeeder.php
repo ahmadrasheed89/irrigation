@@ -20,7 +20,6 @@ class SchemeSeeder extends Seeder
             'contractor_id' => $contractor->random()->id,
             'user_id' => $user->random()->id,
             'adp_id' => $adp->random()->id,
-            'adp_code' => $adp->random()->adp_code,
         ]);
     }
 }
