@@ -18,12 +18,102 @@
             </a>
         </div>
 
+ <!-- Quick Actions Menu -->
+        <div class="d-none d-lg-flex align-items-center ms-3">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-outline-light btn-sm rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="ph-rocket me-1"></i>
+                    Quick Actions
+                </button>
+                <ul class="dropdown-menu" style="border-radius: 12px; min-width: 220px;">
+                    <!-- Users -->
+                    <li class="dropdown-header">User Management</li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('users.index') }}">
+                            <i class="ph-users me-2 text-primary"></i>
+                            All Users
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('users.create') }}">
+                            <i class="ph-user-plus me-2 text-success"></i>
+                            New User
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+
+                    <!-- ADP -->
+                    <li class="dropdown-header">ADP Management</li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('adps.index') }}">
+                            <i class="ph-note-pencil me-2 text-primary"></i>
+                            ADPs List
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('adps.create') }}">
+                            <i class="ph-plus me-2 text-success"></i>
+                            Create ADP
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+
+                    <!-- Schemes -->
+                    <li class="dropdown-header">Schemes Management</li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('schemes.index') }}">
+                            <i class="ph-text-aa me-2 text-primary"></i>
+                            Schemes List
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('schemes.create') }}">
+                            <i class="ph-plus me-2 text-success"></i>
+                            Create Scheme
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+
+                    <!-- NOCs -->
+                    <li class="dropdown-header">NOC Management</li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('nocs.index') }}">
+                            <i class="ph-browser me-2 text-primary"></i>
+                            NOCs List
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('nocs.create') }}">
+                            <i class="ph-plus me-2 text-success"></i>
+                            Create NOC
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+
+                    <!-- Tenders -->
+                    <li class="dropdown-header">Tender Management</li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('tenders.index') }}">
+                            <i class="ph-hand-pointing me-2 text-primary"></i>
+                            Tenders List
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('tenders.create') }}">
+                            <i class="ph-plus me-2 text-success"></i>
+                            Create Tender
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Search section -->
         <div class="navbar-collapse justify-content-center flex-lg-1 order-2 order-lg-1 collapse" id="navbar_search">
             <div class="navbar-search flex-fill position-relative mt-2 mt-lg-0 mx-lg-3">
                 <div class="form-control-feedback form-control-feedback-start flex-grow-1">
                     <input type="text" class="form-control bg-white bg-opacity-10 border-0 text-white rounded-pill ps-4"
-                           placeholder="Search tasks, projects, users..." data-bs-toggle="dropdown"
+                           placeholder="Search ADP, Schemes, NOCs, Tenders..." data-bs-toggle="dropdown"
                            style="backdrop-filter: blur(10px);">
                     <div class="form-control-feedback-icon">
                         <i class="ph-magnifying-glass text-white"></i>
@@ -34,7 +124,7 @@
                         <div class="p-3 border-bottom">
                             <div class="d-flex align-items-center">
                                 <h6 class="mb-0 fw-semibold">Quick Search</h6>
-                                <span class="badge bg-primary ms-2">New</span>
+                                <span class="badge bg-primary ms-2">All Modules</span>
                             </div>
                         </div>
 
@@ -42,60 +132,76 @@
                             <!-- Recent searches -->
                             <div class="mb-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <h6 class="mb-0 fs-sm fw-semibold text-muted">Recent</h6>
+                                    <h6 class="mb-0 fs-sm fw-semibold text-muted">Recent Searches</h6>
                                     <a href="#" class="text-primary fs-sm ms-auto">
                                         Clear all
                                     </a>
                                 </div>
                                 <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-light text-dark border cursor-pointer">Dashboard reports</span>
-                                    <span class="badge bg-light text-dark border cursor-pointer">Pending tasks</span>
-                                    <span class="badge bg-light text-dark border cursor-pointer">User management</span>
+                                    <span class="badge bg-light text-dark border cursor-pointer">ADP Reports</span>
+                                    <span class="badge bg-light text-dark border cursor-pointer">NOC Applications</span>
+                                    <span class="badge bg-light text-dark border cursor-pointer">Tender Notices</span>
+                                    <span class="badge bg-light text-dark border cursor-pointer">Scheme Budgets</span>
+                                    <span class="badge bg-light text-dark border cursor-pointer">User Management</span>
                                 </div>
                             </div>
 
                             <!-- Quick actions -->
                             <div class="mb-4">
-                                <h6 class="fs-sm fw-semibold text-muted mb-3">Quick Actions</h6>
+                                <h6 class="fs-sm fw-semibold text-muted mb-3">Quick Create</h6>
                                 <div class="row g-2">
                                     <div class="col-6">
-                                        <button class="btn btn-outline-primary btn-sm w-100 text-start">
-                                            <i class="ph-plus-circle me-2"></i>New Task
-                                        </button>
+                                        <a href="{{ route('adps.create') }}" class="btn btn-outline-primary btn-sm w-100 text-start">
+                                            <i class="ph-note-pencil me-2"></i>New ADP
+                                        </a>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-outline-success btn-sm w-100 text-start">
-                                            <i class="ph-chart-line me-2"></i>View Reports
-                                        </button>
+                                        <a href="{{ route('schemes.create') }}" class="btn btn-outline-success btn-sm w-100 text-start">
+                                            <i class="ph-text-aa me-2"></i>New Scheme
+                                        </a>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-outline-info btn-sm w-100 text-start">
-                                            <i class="ph-users me-2"></i>Team Members
-                                        </button>
+                                        <a href="{{ route('nocs.create') }}" class="btn btn-outline-info btn-sm w-100 text-start">
+                                            <i class="ph-browser me-2"></i>New NOC
+                                        </a>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-outline-warning btn-sm w-100 text-start">
-                                            <i class="ph-calendar me-2"></i>Schedule
-                                        </button>
+                                        <a href="{{ route('tenders.create') }}" class="btn btn-outline-warning btn-sm w-100 text-start">
+                                            <i class="ph-hand-pointing me-2"></i>New Tender
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="{{ route('users.create') }}" class="btn btn-outline-purple btn-sm w-100 text-start">
+                                            <i class="ph-user-plus me-2"></i>New User
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="{{ route('portfolios.create') }}" class="btn btn-outline-teal btn-sm w-100 text-start">
+                                            <i class="ph-smiley-wink me-2"></i>New Portfolio
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Quick stats -->
+                            <!-- Module Stats -->
                             <div class="bg-light rounded-3 p-3">
-                                <h6 class="fs-sm fw-semibold text-muted mb-2">Today's Overview</h6>
+                                <h6 class="fs-sm fw-semibold text-muted mb-2">Module Overview</h6>
                                 <div class="row text-center g-2">
-                                    <div class="col-4">
-                                        <div class="fw-bold text-primary">12</div>
-                                        <small class="text-muted">New Tasks</small>
+                                    <div class="col-3">
+                                        <div class="fw-bold text-primary">24</div>
+                                        <small class="text-muted">ADPs</small>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="fw-bold text-success">8</div>
-                                        <small class="text-muted">Completed</small>
+                                    <div class="col-3">
+                                        <div class="fw-bold text-success">18</div>
+                                        <small class="text-muted">Schemes</small>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="fw-bold text-warning">3</div>
-                                        <small class="text-muted">Pending</small>
+                                    <div class="col-3">
+                                        <div class="fw-bold text-info">12</div>
+                                        <small class="text-muted">NOCs</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="fw-bold text-warning">8</div>
+                                        <small class="text-muted">Tenders</small>
                                     </div>
                                 </div>
                             </div>
@@ -119,20 +225,38 @@
                     </div>
 
                     <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold">Category</label>
-                            <div class="d-flex flex-column gap-2">
-                                <label class="form-check form-check-simple">
+                        <div class="col-md-12">
+                            <label class="form-label fw-semibold">Module</label>
+                            <div class="d-flex flex-wrap gap-3">
+                                <label class="form-check">
                                     <input type="checkbox" class="form-check-input" checked>
-                                    <span class="form-check-label">Tasks</span>
+                                    <span class="form-check-label d-flex align-items-center">
+                                        <i class="ph-note-pencil text-primary me-2"></i>ADP
+                                    </span>
                                 </label>
-                                <label class="form-check form-check-simple">
-                                    <input type="checkbox" class="form-check-input">
-                                    <span class="form-check-label">Projects</span>
+                                <label class="form-check">
+                                    <input type="checkbox" class="form-check-input" checked>
+                                    <span class="form-check-label d-flex align-items-center">
+                                        <i class="ph-text-aa text-success me-2"></i>Schemes
+                                    </span>
                                 </label>
-                                <label class="form-check form-check-simple">
-                                    <input type="checkbox" class="form-check-input">
-                                    <span class="form-check-label">Users</span>
+                                <label class="form-check">
+                                    <input type="checkbox" class="form-check-input" checked>
+                                    <span class="form-check-label d-flex align-items-center">
+                                        <i class="ph-browser text-info me-2"></i>NOCs
+                                    </span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" class="form-check-input" checked>
+                                    <span class="form-check-label d-flex align-items-center">
+                                        <i class="ph-hand-pointing text-warning me-2"></i>Tenders
+                                    </span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" class="form-check-input" checked>
+                                    <span class="form-check-label d-flex align-items-center">
+                                        <i class="ph-users text-purple me-2"></i>Users
+                                    </span>
                                 </label>
                             </div>
                         </div>
@@ -142,8 +266,8 @@
                             <select class="form-select">
                                 <option value="1" selected>All Status</option>
                                 <option value="2">Active</option>
-                                <option value="3">Completed</option>
-                                <option value="4">Pending</option>
+                                <option value="3">Pending</option>
+                                <option value="4">Completed</option>
                                 <option value="5">Cancelled</option>
                             </select>
                         </div>
@@ -167,6 +291,16 @@
                                 <option value="4">This Month</option>
                             </select>
                         </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Sort By</label>
+                            <select class="form-select">
+                                <option value="1" selected>Recent First</option>
+                                <option value="2">Oldest First</option>
+                                <option value="3">A to Z</option>
+                                <option value="4">Z to A</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="d-flex mt-4 pt-2 border-top">
@@ -184,13 +318,56 @@
 
         <!-- Right side items -->
         <ul class="nav flex-row justify-content-end order-1 order-lg-2">
+            <!-- Module Quick Actions -->
+            <li class="nav-item d-none d-lg-block">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-primary btn-sm rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="ph-plus-circle me-1"></i>
+                        Quick Create
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" style="border-radius: 12px; min-width: 200px;">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('adps.create') }}">
+                                <i class="ph-note-pencil me-2 text-primary"></i>
+                                New ADP
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('schemes.create') }}">
+                                <i class="ph-text-aa me-2 text-success"></i>
+                                New Scheme
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('nocs.create') }}">
+                                <i class="ph-browser me-2 text-info"></i>
+                                New NOC
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('tenders.create') }}">
+                                <i class="ph-hand-pointing me-2 text-warning"></i>
+                                New Tender
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('users.create') }}">
+                                <i class="ph-user-plus me-2 text-purple"></i>
+                                New User
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
             <!-- Notifications -->
             <li class="nav-item nav-item-dropdown-lg dropdown">
                 <a href="#" class="navbar-nav-link align-items-center rounded-pill p-1 position-relative bg-white bg-opacity-10 me-2 nav-dropdown-toggle"
                    data-bs-toggle="dropdown" data-bs-auto-close="outside">
                     <i class="ph-bell text-white fs-5"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-2 border-white">
-                        3
+                        5
                     </span>
                 </a>
 
@@ -198,53 +375,87 @@
                     <div class="p-3 border-bottom">
                         <div class="d-flex align-items-center">
                             <h6 class="mb-0 fw-semibold">Notifications</h6>
-                            <span class="badge bg-primary ms-2">3 New</span>
+                            <span class="badge bg-primary ms-2">5 New</span>
                         </div>
                     </div>
 
                     <div class="dropdown-menu-scrollable-lg" style="max-height: 300px;">
-                        <!-- Notification items -->
-                        <a href="#" class="dropdown-item py-3 border-bottom">
+                        <!-- ADP Notification -->
+                        <a href="{{ route('adps.index') }}" class="dropdown-item py-3 border-bottom">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
-                                    <div class="bg-success rounded-2 p-2">
-                                        <i class="ph-check-circle text-white"></i>
+                                    <div class="bg-primary rounded-2 p-2">
+                                        <i class="ph-note-pencil text-white"></i>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <div class="fw-semibold">Task Completed</div>
-                                    <div class="text-muted fs-sm">Project dashboard design approved</div>
-                                    <small class="text-muted">2 minutes ago</small>
+                                    <div class="fw-semibold">ADP Update</div>
+                                    <div class="text-muted fs-sm">New ADP requires approval</div>
+                                    <small class="text-muted">10 minutes ago</small>
                                 </div>
                             </div>
                         </a>
 
-                        <a href="#" class="dropdown-item py-3 border-bottom">
+                        <!-- Scheme Notification -->
+                        <a href="{{ route('schemes.index') }}" class="dropdown-item py-3 border-bottom">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
-                                    <div class="bg-warning rounded-2 p-2">
-                                        <i class="ph-warning text-white"></i>
+                                    <div class="bg-success rounded-2 p-2">
+                                        <i class="ph-text-aa text-white"></i>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <div class="fw-semibold">Deadline Approaching</div>
-                                    <div class="text-muted fs-sm">Client meeting in 1 hour</div>
+                                    <div class="fw-semibold">Scheme Alert</div>
+                                    <div class="text-muted fs-sm">Scheme budget needs review</div>
                                     <small class="text-muted">1 hour ago</small>
                                 </div>
                             </div>
                         </a>
 
-                        <a href="#" class="dropdown-item py-3">
+                        <!-- NOC Notification -->
+                        <a href="{{ route('nocs.index') }}" class="dropdown-item py-3 border-bottom">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
                                     <div class="bg-info rounded-2 p-2">
+                                        <i class="ph-browser text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="fw-semibold">NOC Application</div>
+                                    <div class="text-muted fs-sm">New NOC application submitted</div>
+                                    <small class="text-muted">2 hours ago</small>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Tender Notification -->
+                        <a href="{{ route('tenders.index') }}" class="dropdown-item py-3 border-bottom">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-warning rounded-2 p-2">
+                                        <i class="ph-hand-pointing text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="fw-semibold">Tender Deadline</div>
+                                    <div class="text-muted fs-sm">Tender closing in 24 hours</div>
+                                    <small class="text-muted">3 hours ago</small>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- User Notification -->
+                        <a href="{{ route('users.index') }}" class="dropdown-item py-3">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-purple rounded-2 p-2">
                                         <i class="ph-user-plus text-white"></i>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <div class="fw-semibold">New Team Member</div>
-                                    <div class="text-muted fs-sm">Sarah Johnson joined your project</div>
-                                    <small class="text-muted">2 hours ago</small>
+                                    <div class="fw-semibold">New User</div>
+                                    <div class="text-muted fs-sm">New user registration pending</div>
+                                    <small class="text-muted">4 hours ago</small>
                                 </div>
                             </div>
                         </a>
@@ -253,6 +464,54 @@
                     <div class="p-3 border-top text-center">
                         <a href="#" class="btn btn-outline-primary btn-sm">View All Notifications</a>
                     </div>
+                </div>
+            </li>
+
+            <!-- Module Quick Links -->
+            <li class="nav-item d-none d-lg-block">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-outline-light btn-sm rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="ph-grid-four me-1"></i>
+                        Modules
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" style="border-radius: 12px; min-width: 180px;">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('adps.index') }}">
+                                <i class="ph-note-pencil me-2 text-primary"></i>
+                                ADPs
+                                <span class="badge bg-primary ms-auto">24</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('schemes.index') }}">
+                                <i class="ph-text-aa me-2 text-success"></i>
+                                Schemes
+                                <span class="badge bg-success ms-auto">18</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('nocs.index') }}">
+                                <i class="ph-browser me-2 text-info"></i>
+                                NOCs
+                                <span class="badge bg-info ms-auto">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('tenders.index') }}">
+                                <i class="ph-hand-pointing me-2 text-warning"></i>
+                                Tenders
+                                <span class="badge bg-warning ms-auto">8</span>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('users.index') }}">
+                                <i class="ph-users me-2 text-purple"></i>
+                                Users
+                                <span class="badge bg-purple ms-auto">42</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </li>
 
@@ -271,7 +530,7 @@
                     <i class="ph-caret-down text-white d-none d-lg-inline-block"></i>
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius: 16px; min-width: 240px;">
+                <div class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius: 16px; min-width: 280px;">
                     <!-- User header -->
                     <div class="p-3 border-bottom">
                         <div class="d-flex align-items-center">
@@ -290,15 +549,53 @@
                     <a href="{{ route('users.show', auth()->user()->id) }}" class="dropdown-item py-2">
                         <i class="ph-user-circle me-2"></i>
                         My Profile
-                        <span class="badge bg-success ms-auto"></span>
                     </a>
-                    <a href="#" class="dropdown-item py-2">
-                        <i class="ph-gear me-2"></i>
-                        Account Settings
+                    <a href="{{ route('users.edit', auth()->user()->id) }}" class="dropdown-item py-2">
+                        <i class="ph-pencil-simple me-2"></i>
+                        Edit Profile
                     </a>
-                    <a href="#" class="dropdown-item py-2">
-                        <i class="ph-bell me-2"></i>
-                        Notifications
+                    <a href="#" class="dropdown-item py-2" data-bs-toggle="modal" data-bs-target="#passwordModal">
+                        <i class="ph-key me-2"></i>
+                        Change Password
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- Module Management -->
+                    <div class="p-2">
+                        <small class="text-muted px-3">MODULE MANAGEMENT</small>
+                    </div>
+                    <a href="{{ route('adps.index') }}" class="dropdown-item py-2">
+                        <i class="ph-note-pencil me-2 text-primary"></i>
+                        ADPs
+                        <span class="badge bg-primary ms-auto">24</span>
+                    </a>
+                    <a href="{{ route('schemes.index') }}" class="dropdown-item py-2">
+                        <i class="ph-text-aa me-2 text-success"></i>
+                        Schemes
+                        <span class="badge bg-success ms-auto">18</span>
+                    </a>
+                    <a href="{{ route('nocs.index') }}" class="dropdown-item py-2">
+                        <i class="ph-browser me-2 text-info"></i>
+                        NOCs
+                        <span class="badge bg-info ms-auto">12</span>
+                    </a>
+                    <a href="{{ route('tenders.index') }}" class="dropdown-item py-2">
+                        <i class="ph-hand-pointing me-2 text-warning"></i>
+                        Tenders
+                        <span class="badge bg-warning ms-auto">8</span>
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- Admin Section -->
+                    <div class="p-2">
+                        <small class="text-muted px-3">ADMIN SECTION</small>
+                    </div>
+                    <a href="{{ route('users.index') }}" class="dropdown-item py-2">
+                        <i class="ph-users me-2 text-purple"></i>
+                        Manage Users
+                        <span class="badge bg-purple ms-auto">42</span>
                     </a>
 
                     <div class="dropdown-divider"></div>
@@ -307,16 +604,16 @@
                     <div class="p-3 bg-light rounded-3 mx-2 my-2">
                         <div class="row text-center g-2">
                             <div class="col-4">
-                                <div class="fw-bold text-primary">5</div>
-                                <small class="text-muted">Projects</small>
+                                <div class="fw-bold text-primary">24</div>
+                                <small class="text-muted">ADPs</small>
                             </div>
                             <div class="col-4">
-                                <div class="fw-bold text-success">12</div>
-                                <small class="text-muted">Tasks</small>
+                                <div class="fw-bold text-success">18</div>
+                                <small class="text-muted">Schemes</small>
                             </div>
                             <div class="col-4">
-                                <div class="fw-bold text-warning">3</div>
-                                <small class="text-muted">Pending</small>
+                                <div class="fw-bold text-info">12</div>
+                                <small class="text-muted">NOCs</small>
                             </div>
                         </div>
                     </div>
@@ -337,6 +634,40 @@
     </div>
 </div>
 <!-- /main navbar -->
+
+<!-- Password Change Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ route('users.password.update', auth()->user()->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Current Password</label>
+                        <input type="password" name="current_password" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New Password</label>
+                        <input type="password" name="password" class="form-control" required minlength="8">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Confirm New Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <style>
 .navbar {
@@ -386,6 +717,10 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
 }
 
+.bg-purple {
+    background-color: #8b5cf6 !important;
+}
+
 .dropdown-menu {
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.95) !important;
@@ -432,6 +767,12 @@
 
 .dropdown-menu-scrollable-lg::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+/* Quick Actions button group */
+.btn-group .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
 }
 </style>
 
@@ -511,6 +852,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggle.classList.remove('active');
             });
             activeDropdown = null;
+        }
+    });
+
+    // Password Modal Handler
+    const passwordModal = document.getElementById('passwordModal');
+    if (passwordModal) {
+        passwordModal.addEventListener('show.bs.modal', function() {
+            // Reset form when modal opens
+            const form = this.querySelector('form');
+            if (form) {
+                form.reset();
+            }
+        });
+    }
+
+    // User search integration
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const searchTerm = this.value.trim();
+            if (searchTerm) {
+                window.location.href = `{{ route('users.index') }}?search=${encodeURIComponent(searchTerm)}`;
+            }
         }
     });
 });
