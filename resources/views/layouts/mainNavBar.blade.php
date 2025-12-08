@@ -95,13 +95,7 @@
                     <li>
                         <a class="dropdown-item" href="{{ route('tenders.index') }}">
                             <i class="ph-hand-pointing me-2 text-primary"></i>
-                            Tenders List
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('tenders.create') }}">
-                            <i class="ph-plus me-2 text-success"></i>
-                            Create Tender
+                            Tenders
                         </a>
                     </li>
                 </ul>
@@ -166,8 +160,8 @@
                                         </a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{ route('tenders.create') }}" class="btn btn-outline-warning btn-sm w-100 text-start">
-                                            <i class="ph-hand-pointing me-2"></i>New Tender
+                                        <a href="{{ route('tenders.index') }}" class="btn btn-outline-warning btn-sm w-100 text-start">
+                                            <i class="ph-hand-pointing me-2"></i>Tenders
                                         </a>
                                     </div>
                                     <div class="col-6">
@@ -345,9 +339,9 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('tenders.create') }}">
+                            <a class="dropdown-item" href="{{ route('tenders.index') }}">
                                 <i class="ph-hand-pointing me-2 text-warning"></i>
-                                New Tender
+                                Tenders
                             </a>
                         </li>
                         <li><hr class="dropdown-divider"></li>
