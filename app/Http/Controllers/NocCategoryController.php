@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\NocCategory;
 use App\Http\Requests\StoreNocCategoryRequest;
 use App\Http\Requests\UpdateNocCategoryRequest;
+use Illuminate\Http\Request;
+
 
 class NocCategoryController extends Controller
 {
@@ -13,54 +15,54 @@ class NocCategoryController extends Controller
      */
     public function index()
     {
-        //
-    }
+         $nocCategories = NocCategory::latest()->filter(request(['search']))
+                    ->paginate(10)
+                    ->withQueryString();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+        return view('noc_categories.index', compact('nocCategories'));
+    }
+ public function create()
     {
-        //
+        return view('noc_categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreNocCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:noc_categories,name',
+            'description' => 'nullable|string',
+        ]);
+
+        NocCategory::create($validated);
+
+        return redirect()->route('noc-categories.index')->with('success', 'Category created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(NocCategory $nocCategory)
     {
-        //
+        return view('noc_categories.show', compact('nocCategory'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(NocCategory $nocCategory)
     {
-        //
+        return view('noc_categories.edit', compact('nocCategory'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateNocCategoryRequest $request, NocCategory $nocCategory)
+    public function update(Request $request, NocCategory $nocCategory)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:noc_categories,name,' . $nocCategory->id,
+            'description' => 'nullable|string',
+        ]);
+
+        $nocCategory->update($validated);
+
+        return redirect()->route('noc-categories.index')->with('success', 'Category updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(NocCategory $nocCategory)
     {
-        //
+        $nocCategory->delete();
+        return redirect()->route('noc-categories.index')->with('success', 'Category deleted successfully.');
     }
 }

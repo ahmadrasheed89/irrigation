@@ -11,11 +11,11 @@
                     <button class="btn btn-light d-flex align-items-center">
                         <i class="ph-download-simple me-2"></i>Export
                     </button>
-                    @can('create', App\Models\Noc::class)
+                    {{-- @can('create', App\Models\Noc::class) --}}
                         <a href="{{ route('nocs.create') }}" class="btn btn-light d-flex align-items-center">
                             <i class="ph-plus-circle me-2"></i>Add New NOC
                         </a>
-                    @endcan
+                    {{-- @endcan --}}
                 </div>
             </div>
         </div>

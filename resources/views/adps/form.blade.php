@@ -46,7 +46,7 @@
                         </label>
                         <div class="input-group">
                             <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-inr text-muted"></i>
+                                <i class="ph-currency-pkr text-muted"></i>
                             </span>
                             <input type="number"
                                    step="0.01"
@@ -79,7 +79,7 @@
                         </label>
                         <div class="input-group">
                             <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-inr text-muted"></i>
+                                <i class="ph-currency-pkr text-muted"></i>
                             </span>
                             <input type="number"
                                    step="0.01"
@@ -102,7 +102,7 @@
                         </label>
                         <div class="input-group">
                             <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-inr text-muted"></i>
+                                <i class="ph-currency-pkr text-muted"></i>
                             </span>
                             <input type="number"
                                    step="0.01"
@@ -125,7 +125,7 @@
                         </label>
                         <div class="input-group">
                             <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-inr text-muted"></i>
+                                <i class="ph-currency-pkr text-muted"></i>
                             </span>
                             <input type="number"
                                    step="0.01"

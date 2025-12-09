@@ -35,11 +35,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('users.create') }}">
-                            <i class="ph-user-plus me-2 text-success"></i>
-                            New User
+                        <a class="dropdown-item" href="{{ route('contractors.index') }}">
+                            <i class="ph-users me-2 text-primary"></i>
+                            All Contractors
                         </a>
                     </li>
+
                     <li class="dropdown-divider"></li>
 
                     <!-- ADP -->
@@ -48,12 +49,6 @@
                         <a class="dropdown-item" href="{{ route('adps.index') }}">
                             <i class="ph-note-pencil me-2 text-primary"></i>
                             ADPs List
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('adps.create') }}">
-                            <i class="ph-plus me-2 text-success"></i>
-                            Create ADP
                         </a>
                     </li>
                     <li class="dropdown-divider"></li>
@@ -66,26 +61,20 @@
                             Schemes List
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('schemes.create') }}">
-                            <i class="ph-plus me-2 text-success"></i>
-                            Create Scheme
-                        </a>
-                    </li>
                     <li class="dropdown-divider"></li>
 
                     <!-- NOCs -->
                     <li class="dropdown-header">NOC Management</li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('nocs.index') }}">
+                        <a class="dropdown-item" href="{{ route('noc-categories.index') }}">
                             <i class="ph-browser me-2 text-primary"></i>
-                            NOCs List
+                            NOCs Categories List
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('nocs.create') }}">
-                            <i class="ph-plus me-2 text-success"></i>
-                            Create NOC
+                        <a class="dropdown-item" href="{{ route('nocs.index') }}">
+                            <i class="ph-browser me-2 text-primary"></i>
+                            NOCs List
                         </a>
                     </li>
                     <li class="dropdown-divider"></li>
@@ -333,6 +322,12 @@
                             </a>
                         </li>
                         <li>
+                            <a class="dropdown-item" href="{{ route('noc-categories.create') }}">
+                                <i class="ph-browser me-2 text-info"></i>
+                                New NOC Category
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="{{ route('nocs.create') }}">
                                 <i class="ph-browser me-2 text-info"></i>
                                 New NOC
@@ -345,6 +340,12 @@
                             </a>
                         </li>
                         <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('contractors.create') }}">
+                                <i class="ph-user me-2 text-purple"></i>
+                                New Contractor
+                            </a>
+                        </li>
                         <li>
                             <a class="dropdown-item" href="{{ route('users.create') }}">
                                 <i class="ph-user-plus me-2 text-purple"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NocCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -46,12 +47,16 @@ Route::resource('schemes', SchemeController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('tenders', TenderController::class);
 Route::resource('portfolios', PortfolioController::class);
+Route::resource('noc-categories', NocCategoryController::class);
 Route::resource('nocs', NocController::class);
 Route::get('/nocs/upload/{noc}', [NocController::class, 'upload'])->name('nocs.upload');
 Route::post('/nocs/uploadfile', [NocController::class, 'uploadFile'])->name('nocs.uploadfile');
 Route::delete('/nocs/uploaddestroy/{nocFile}', [NocController::class, 'uploadDestroy'])->name('nocs.uploaddestroy');
 Route::post('/nocs/{noc}/status', [NocController::class, 'updateStatus'])->name('nocs.updateStatus');
 Route::resource('contractors', ContractorController::class);
+Route::post('contractors/bulk-action', [ContractorController::class, 'bulkAction'])
+         ->name('contractors.bulk.action');
+
 Route::resource('adps', AdpController::class);
 Route::get('/adp-dashboard', [AdpDashboardController::class, 'index'])->name('adps.dashboard');
 Route::get('/adp-dashboard/{adp}', [AdpDashboardController::class, 'show'])->name('adps.schemedetail');
