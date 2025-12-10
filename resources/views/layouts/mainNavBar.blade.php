@@ -26,6 +26,7 @@
                     Quick Actions
                 </button>
                 <ul class="dropdown-menu" style="border-radius: 12px; min-width: 220px;">
+                    @if(Auth::user()->role == 1 || Auth::user()->role == 2)
                     <!-- Users -->
                     <li class="dropdown-header">User Management</li>
                     <li>
@@ -42,6 +43,7 @@
                     </li>
 
                     <li class="dropdown-divider"></li>
+                    @endif
 
                     <!-- ADP -->
                     <li class="dropdown-header">ADP Management</li>
@@ -162,29 +164,6 @@
                                         <a href="{{ route('portfolios.create') }}" class="btn btn-outline-teal btn-sm w-100 text-start">
                                             <i class="ph-smiley-wink me-2"></i>New Portfolio
                                         </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Module Stats -->
-                            <div class="bg-light rounded-3 p-3">
-                                <h6 class="fs-sm fw-semibold text-muted mb-2">Module Overview</h6>
-                                <div class="row text-center g-2">
-                                    <div class="col-3">
-                                        <div class="fw-bold text-primary">24</div>
-                                        <small class="text-muted">ADPs</small>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="fw-bold text-success">18</div>
-                                        <small class="text-muted">Schemes</small>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="fw-bold text-info">12</div>
-                                        <small class="text-muted">NOCs</small>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="fw-bold text-warning">8</div>
-                                        <small class="text-muted">Tenders</small>
                                     </div>
                                 </div>
                             </div>

@@ -194,7 +194,7 @@
                     <div class="card-body">
                         <div class="row g-3">
                             <!-- Phone -->
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group mb-3">
                                     <label class="form-label fw-medium">
                                         <i class="ph-phone me-2 text-secondary"></i>
@@ -216,9 +216,34 @@
                                     <div class="form-text text-muted">Optional contact number</div>
                                 </div>
                             </div>
+                    @if(Auth::user()->role != 1)
+                            <!-- Role Selection -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-medium">
+                                <i class="ph-list-dashes me-2 text-primary"></i>
+                                Role
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="ph-selection text-muted"></i>
+                                </span>
+                                <select name="role" class="form-control border-start-0">
+                                    <option>Select Role</option>
+                                    <option value="2" {{  $user->role == 2 ? 'selected' : '' }}>Editor</option>
+                                    <option value="3" {{  $user->role == 3 ? 'selected' : '' }}>User</option>
+                                    <option value="4" {{  $user->role == 4 ? 'selected' : '' }}>Moderator</option>
+                                </select>
+
+                            </div>
+                            <x-input-error :messages="$errors->get('adp_id')" class="mt-2" />
+                            <div class="form-text text-muted">Select the associated ADP</div>
+                        </div>
+                    </div>
+                    @endif
 
                             <!-- Status -->
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group mb-3">
                                     <label class="form-label fw-medium">
                                         <i class="ph-toggle-right me-2 text-success"></i>

@@ -44,7 +44,7 @@ class UserController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'phone' => 'nullable|string|max:20',
-            'department_id' => 'nullable|string|max:255',
+            'role' => 'required|in:2,3,4',
             'position_id' => 'nullable|string|max:255',
             'status' => 'boolean',
         ]);
@@ -97,7 +97,7 @@ class UserController extends Controller
                 Rule::unique('users')->ignore($user->id)
             ],
             'phone' => 'nullable|string|max:20',
-            'department_id' => 'nullable|string|max:255',
+            'role' => 'required|in:2,3,4',
             'position_id' => 'nullable|string|max:255',
             'status' => 'boolean',
         ]);
@@ -153,8 +153,8 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         // Prevent users from deleting themselves
-        if ($user->id === auth()->id()) {
-            return back()->with('error', 'You cannot delete your own account.');
+        if ($user->id === auth()->id() || $user->role == 1) {
+            return back()->with('error', 'You cannot delete your own/admin account.');
         }
 
         $user->delete();

@@ -101,7 +101,7 @@
                                     </th>
                                     <th>
                                         <i class="ph-buildings me-2 text-muted"></i>
-                                        Department
+                                        Role
                                     </th>
                                     <th>
                                         <i class="ph-toggle-right me-2 text-muted"></i>
@@ -145,8 +145,17 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <div class="fw-medium">{{ $user->department ?? 'N/A' }}</div>
-                                        <div class="text-muted small">{{ $user->position ?? 'N/A' }}</div>
+                                        <?php if ($user->role == 1): ?>
+                                            <span class="badge bg-danger ">Admin</span>
+                                        <?php elseif ($user->role == 2): ?>
+                                            <span class="badge bg-warning text-dark">Editor</span>
+                                        <?php elseif ($user->role == 3): ?>
+                                            <span class="badge bg-success text-dark">User</span>
+                                        <?php elseif ($user->role == 4): ?>
+                                            <span class="badge bg-info text-dark">Moderator</span>
+                                        <?php else: ?>
+                                            <span class="badge bg-secondary text-dark">No Role</span>
+                                        <?php endif; ?>
                                     </td>
                                     <td>
                                         {!! $user->status_badge !!}
