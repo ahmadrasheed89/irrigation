@@ -7,9 +7,9 @@
     <div class="content">
 					<!-- Basic layout -->
         <div class="card">
-            <div class="card-header">
+            {{-- <div class="card-header">
                 <h5 class="mb-0">Create Scheme</h5>
-            </div>
+            </div> --}}
             <div class="card-body border-top">
                 <form action="{{ route('schemes.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf

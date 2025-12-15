@@ -52,9 +52,9 @@
 
         <!-- Scheme Details Card -->
         <div class="card shadow-sm mb-4">
-            <div class="card-header bg-light">
+            {{-- <div class="card-header bg-light">
                 <h6 class="mb-0 fw-semibold">📝 Basic Details</h6>
-            </div>
+            </div> --}}
             <div class="card-body">
                 <div class="row g-3">
                     <!-- ADP Selection -->
@@ -138,6 +138,52 @@
                                        placeholder="0.00">
                             </div>
                             <x-input-error :messages="$errors->get('expenditure')" class="mt-2" />
+                            <div class="form-text text-muted">Total expenditure for this scheme</div>
+                        </div>
+                    </div>
+                     <!-- Physical Progress -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-medium">
+                                <i class="ph-currency-circle-dollar me-2 text-success"></i>
+                                Physical Progress
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="ph-currency-pkr text-muted"></i>
+                                </span>
+                                <input type="number"
+                                       step="0.01"
+                                       name="physical_progress"
+                                       class="form-control border-start-0"
+                                       required
+                                       value="{{ old('physical_progress', $scheme->physical_progress ?? '') }}"
+                                       placeholder="0.00">
+                            </div>
+                            <x-input-error :messages="$errors->get('physical_progress')" class="mt-2" />
+                            <div class="form-text text-muted">Total expenditure for this scheme</div>
+                        </div>
+                    </div>
+                     <!-- Financial Progress -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-medium">
+                                <i class="ph-currency-circle-dollar me-2 text-success"></i>
+                                Financial Progress
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="ph-currency-pkr text-muted"></i>
+                                </span>
+                                <input type="number"
+                                       step="0.01"
+                                       name="financial_progress"
+                                       class="form-control border-start-0"
+                                       required
+                                       value="{{ old('financial_progress', $scheme->financial_progress ?? '') }}"
+                                       placeholder="0.00">
+                            </div>
+                            <x-input-error :messages="$errors->get('financial_progress')" class="mt-2" />
                             <div class="form-text text-muted">Total expenditure for this scheme</div>
                         </div>
                     </div>

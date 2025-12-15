@@ -26,17 +26,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 
 Route::middleware('auth')->group(function () {
 
-Route::resource('users', UserController::class);
-
-    // Additional routes
-    Route::post('users/{user}/password', [UserController::class, 'updatePassword'])
-         ->name('users.password.update');
-
-    Route::post('users/{user}/status', [UserController::class, 'updateStatus'])
-         ->name('users.status.update');
-
-    Route::post('users/bulk-action', [UserController::class, 'bulkAction'])
-         ->name('users.bulk.action');
 
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -47,15 +36,12 @@ Route::resource('schemes', SchemeController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('tenders', TenderController::class);
 Route::resource('portfolios', PortfolioController::class);
-Route::resource('noc-categories', NocCategoryController::class);
-Route::resource('nocs', NocController::class);
+
 Route::get('/nocs/upload/{noc}', [NocController::class, 'upload'])->name('nocs.upload');
 Route::post('/nocs/uploadfile', [NocController::class, 'uploadFile'])->name('nocs.uploadfile');
 Route::delete('/nocs/uploaddestroy/{nocFile}', [NocController::class, 'uploadDestroy'])->name('nocs.uploaddestroy');
 Route::post('/nocs/{noc}/status', [NocController::class, 'updateStatus'])->name('nocs.updateStatus');
-Route::resource('contractors', ContractorController::class);
-Route::post('contractors/bulk-action', [ContractorController::class, 'bulkAction'])
-         ->name('contractors.bulk.action');
+
 
 Route::resource('adps', AdpController::class);
 Route::get('/adp-dashboard', [AdpDashboardController::class, 'index'])->name('adps.dashboard');
@@ -84,6 +70,24 @@ Route::get('/task-explorer', [TaskSearchController::class, 'index'])->name('task
     Route::get('/task-explorer/search', [TaskSearchController::class, 'search'])->name('task.explorer.search');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('users', UserController::class);
+
+    // Additional routes
+    Route::post('users/{user}/password', [UserController::class, 'updatePassword'])->name('users.password.update');
+
+    Route::post('users/{user}/status', [UserController::class, 'updateStatus'])->name('users.status.update');
+
+    Route::post('users/bulk-action', [UserController::class, 'bulkAction'])->name('users.bulk.action');
+
+    Route::resource('contractors', ContractorController::class);
+    Route::post('contractors/bulk-action', [ContractorController::class, 'bulkAction'])->name('contractors.bulk.action');
+
+    Route::resource('noc-categories', NocCategoryController::class);
+    Route::resource('nocs', NocController::class);
+
+
+});
 
 
 require __DIR__.'/auth.php';

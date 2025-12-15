@@ -62,6 +62,8 @@ class SchemeController extends Controller
             'adp_id' => 'required|exists:adps,id',
             'contractor_premium' => 'nullable|numeric|min:0',
             'bid_cost' => 'required|numeric|min:0',
+            'financial_progress' => 'required|numeric|min:0',
+            'physical_progress' => 'required|numeric|min:0',
         ]);
 
         Scheme::create($validated);
@@ -93,6 +95,8 @@ class SchemeController extends Controller
             'adp_id' => 'required|exists:contractors,id',
             'contractor_premium' => 'required|numeric|min:0',
             'bid_cost' => 'required|numeric|min:0',
+            'financial_progress' => 'required|numeric|min:0',
+            'physical_progress' => 'required|numeric|min:0',
         ]);
 
         $scheme->update($validated);
