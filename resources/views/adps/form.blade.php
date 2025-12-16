@@ -1,7 +1,7 @@
 <div class="content">
     <!-- Header Section -->
     <div class="card mb-4">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
             <div>
                 <h5 class="mb-0 fw-bold">🏗️ ADP Information</h5>
                 <p class="mb-0 mt-1 opacity-75">Fill in the details below to {{ isset($adp) ? 'update' : 'create' }} the Annual Development Program</p>
@@ -9,145 +9,124 @@
         </div>
     </div>
 
-    <!-- Financial Information Card -->
-    <div class="card shadow-sm mb-4">
-        <div class="card-header bg-light">
-            <h6 class="mb-0 fw-semibold">💰 Financial Details</h6>
-        </div>
+    <!-- All Form Fields in a Single Well-Spaced Layout -->
+    <div class="card shadow-sm">
         <div class="card-body">
             <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
+                <!-- ADP Code -->
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-identification-card me-2 text-primary"></i>
                             ADP Code
                         </label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-hash text-muted"></i>
-                            </span>
-                            <input type="text"
-                                   class="form-control border-start-0"
-                                   placeholder="Enter unique ADP code"
-                                   name="adp_code"
-                                   value="{{ old('adp_code', $adp->adp_code ?? '') }}"
-                                   required>
-                        </div>
-                        <x-input-error :messages="$errors->get('adp_code')" class="mt-2" />
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter unique ADP code"
+                               name="adp_code"
+                               value="{{ old('adp_code', $adp->adp_code ?? '') }}"
+                               required>
+                        <x-input-error :messages="$errors->get('adp_code')" class="mt-1" />
                         <div class="form-text text-muted">Unique identifier for the ADP</div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
+                <!-- Total Allocation -->
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-currency-circle-dollar me-2 text-success"></i>
                             Total Allocation
                         </label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-pkr text-muted"></i>
-                            </span>
+                            <span class="input-group-text">₨</span>
                             <input type="number"
                                    step="0.01"
                                    name="allocation"
-                                   class="form-control border-start-0"
+                                   class="form-control"
                                    value="{{ old('allocation', $adp->allocation ?? 0) }}"
                                    required
                                    placeholder="0.00">
                         </div>
-                        <x-input-error :messages="$errors->get('allocation')" class="mt-2" />
-                        <div class="form-text text-muted">Total budget allocated for this ADP</div>
+                        <x-input-error :messages="$errors->get('allocation')" class="mt-1" />
+                        <div class="form-text text-muted">Total budget allocated</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Cost & Expenditure Card -->
-    <div class="card shadow-sm mb-4">
-        <div class="card-header bg-light">
-            <h6 class="mb-0 fw-semibold">📊 Cost & Expenditure Tracking</h6>
-        </div>
-        <div class="card-body">
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
+                <!-- T/S Cost -->
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-calculator me-2 text-info"></i>
                             T/S Cost
                         </label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-pkr text-muted"></i>
-                            </span>
+                            <span class="input-group-text">₨</span>
                             <input type="number"
                                    step="0.01"
                                    name="adp_t_s_cost"
-                                   class="form-control border-start-0"
+                                   class="form-control"
                                    value="{{ old('adp_t_s_cost', $adp->adp_t_s_cost ?? 0) }}"
                                    required
                                    placeholder="0.00">
                         </div>
-                        <x-input-error :messages="$errors->get('adp_t_s_cost')" class="mt-2" />
-                        <div class="form-text text-muted">Total sanctioned cost for the ADP</div>
+                        <x-input-error :messages="$errors->get('adp_t_s_cost')" class="mt-1" />
+                        <div class="form-text text-muted">Total sanctioned cost</div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
+                <!-- Total Expenditure -->
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-trend-up me-2 text-success"></i>
                             Total Expenditure
                         </label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-pkr text-muted"></i>
-                            </span>
+                            <span class="input-group-text">₨</span>
                             <input type="number"
                                    step="0.01"
                                    name="expenditure"
-                                   class="form-control border-start-0"
+                                   class="form-control"
                                    value="{{ old('expenditure', $adp->expenditure ?? 0) }}"
                                    required
                                    placeholder="0.00">
                         </div>
-                        <x-input-error :messages="$errors->get('expenditure')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('expenditure')" class="mt-1" />
                         <div class="form-text text-muted">Amount spent to date</div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
+                <!-- Accrued Liability -->
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-warning-circle me-2 text-warning"></i>
                             Accrued Liability
                         </label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0">
-                                <i class="ph-currency-pkr text-muted"></i>
-                            </span>
+                            <span class="input-group-text">₨</span>
                             <input type="number"
                                    step="0.01"
                                    name="accrued_liability"
-                                   class="form-control border-start-0"
+                                   class="form-control"
                                    value="{{ old('accrued_liability', $adp->accrued_liability ?? 0) }}"
                                    required
                                    placeholder="0.00">
                         </div>
-                        <x-input-error :messages="$errors->get('accrued_liability')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('accrued_liability')" class="mt-1" />
                         <div class="form-text text-muted">Pending financial obligations</div>
                     </div>
                 </div>
 
-                <!-- Progress Indicator -->
-                <div class="col-md-6">
-                    <div class="form-group mb-3">
+                <!-- Budget Utilization Indicator -->
+                <div class="col-md-4">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-gauge me-2 text-primary"></i>
                             Budget Utilization
                         </label>
-                        <div class="budget-utilization-card p-3 border rounded bg-light">
+                        <div class="budget-indicator p-3 border rounded bg-light">
                             @php
                                 $allocation = old('allocation', $adp->allocation ?? 0);
                                 $expenditure = old('expenditure', $adp->expenditure ?? 0);
@@ -165,24 +144,15 @@
                                 </div>
                             </div>
                             <small class="text-muted mt-2 d-block">
-                                ₹{{ number_format($expenditure, 0) }} of ₹{{ number_format($allocation, 0) }} used
+                                ₨{{ number_format($expenditure, 0) }} of ₨{{ number_format($allocation, 0) }} used
                             </small>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Additional Information Card -->
-    <div class="card shadow-sm mb-4">
-        <div class="card-header bg-light">
-            <h6 class="mb-0 fw-semibold">📎 Additional Information</h6>
-        </div>
-        <div class="card-body">
-            <div class="row g-3">
+                <!-- File Upload -->
                 <div class="col-md-6">
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-paperclip me-2 text-secondary"></i>
                             Attach File
@@ -223,31 +193,28 @@
                     </div>
                 </div>
 
+                <!-- Remarks -->
                 <div class="col-md-6">
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <label class="form-label fw-medium">
                             <i class="ph-note me-2 text-secondary"></i>
                             Remarks & Notes
                         </label>
-                        <div class="remarks-area">
-                            <textarea rows="6"
-                                      name="remarks"
-                                      class="form-control"
-                                      placeholder="Enter additional remarks, notes, or special instructions about this ADP...">{{ old('remarks', $adp->remarks ?? '') }}</textarea>
-                            <div class="form-text text-muted">
-                                <i class="ph-info me-1"></i> Optional: Add any important notes or context
-                            </div>
+                        <textarea rows="6"
+                                  name="remarks"
+                                  class="form-control"
+                                  placeholder="Enter additional remarks, notes, or special instructions about this ADP...">{{ old('remarks', $adp->remarks ?? '') }}</textarea>
+                        <div class="form-text text-muted">
+                            <i class="ph-info me-1"></i> Optional: Add any important notes or context
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Form Actions -->
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
+        <!-- Form Actions -->
+        <div class="card-footer bg-light">
+            <div class="d-flex justify-content-between align-items-center py-2">
                 <div>
                     <a href="{{ url()->previous() }}" class="btn btn-light">
                         <i class="ph-arrow-left me-2"></i>Cancel
@@ -273,20 +240,42 @@
     border: none;
     box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.05);
 }
-.table > :not(caption) > * > * {
-    padding: 0.75rem 0.5rem;
-    vertical-align: middle;
+
+.form-label {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
 }
-.table-hover tbody tr:hover {
-    background-color: rgba(0,0,0,0.02);
+
+.form-group {
+    margin-bottom: 1.25rem;
 }
-.badge {
-    font-size: 0.75rem;
+
+.budget-indicator {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
+
+.progress {
+    background-color: #e5e7eb;
+}
+
+.btn {
+    font-weight: 500;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem !important;
+}
+
 .input-group-text {
     background-color: #f8f9fa;
     border-color: #dee2e6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .form-control:focus, .form-select:focus {
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.1);
     border-color: #0d6efd;
@@ -307,28 +296,34 @@
     background: rgba(13, 110, 253, 0.1);
 }
 
-.budget-utilization-card {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-}
-
 .btn-submit {
-    font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.btn-submit:hover {
+.btn-submit:hover:not(:disabled) {
     transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .card-body {
-        padding: 1rem;
-    }
+/* Make form compact but readable */
+.row.g-3 {
+    row-gap: 1.5rem !important;
+}
 
-    .btn {
-        padding: 0.5rem 1rem;
-    }
+.form-text {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Pakistani Rupee styling */
+.input-group-text {
+    font-weight: 600;
+    color: #1e40af;
 }
 </style>
 
@@ -408,14 +403,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const utilizationColor = utilization >= 80 ? 'success' :
                                (utilization >= 50 ? 'warning' : 'danger');
 
-        const utilizationCard = document.querySelector('.budget-utilization-card');
+        const utilizationCard = document.querySelector('.budget-indicator');
         if (utilizationCard) {
             utilizationCard.querySelector('.badge').textContent = `${utilization.toFixed(1)}%`;
             utilizationCard.querySelector('.badge').className = `badge bg-${utilizationColor}`;
             utilizationCard.querySelector('.progress-bar').style.width = `${Math.min(utilization, 100)}%`;
             utilizationCard.querySelector('.progress-bar').className = `progress-bar bg-${utilizationColor}`;
             utilizationCard.querySelector('small').textContent =
-                `₹${expenditure.toLocaleString()} of ₹${allocation.toLocaleString()} used`;
+                `₨${expenditure.toLocaleString()} of ₨${allocation.toLocaleString()} used`;
         }
     }
 

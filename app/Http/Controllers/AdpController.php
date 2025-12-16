@@ -43,9 +43,9 @@ class AdpController extends Controller
 
         $data['user_id'] = auth()->id();
 
-        // if ($request->hasFile('attached_files')) {
-        //     $data['attached_files'] = $request->file('attached_files')->store('adp_files', 'public');
-        // }
+        if ($request->hasFile('attached_files')) {
+            $data['attached_files'] = $request->file('attached_files')->store('adp_files', 'public');
+        }
 
         Adp::create($data);
 
@@ -75,12 +75,12 @@ class AdpController extends Controller
     {
        $data = $request->all();
 
-        // if ($request->hasFile('attached_files')) {
-        //     if ($adp->attached_files) {
-        //         Storage::disk('public')->delete($adp->attached_files);
-        //     }
-        //     $data['attached_files'] = $request->file('attached_files')->store('adp_files', 'public');
-        // }
+        if ($request->hasFile('attached_files')) {
+            if ($adp->attached_files) {
+                Storage::disk('public')->delete($adp->attached_files);
+            }
+            $data['attached_files'] = $request->file('attached_files')->store('adp_files', 'public');
+        }
 
         $adp->update($data);
 
